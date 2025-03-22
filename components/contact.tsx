@@ -11,6 +11,7 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import { sendContact } from "@/config/resend-method";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Github, Linkedin, Mail, Phone, Send } from "lucide-react";
 import { useState } from "react";
@@ -20,16 +21,16 @@ import { z } from "zod";
 
 const formSchema = z.object({
   name: z.string().min(2, {
-    message: "Name must be at least 2 characters.",
+    message: "Le nom doit contenir au moins 2 caractères.",
   }),
   email: z.string().email({
-    message: "Please enter a valid email address.",
+    message: "Renseigner une adresse email valide.",
   }),
   subject: z.string().min(5, {
-    message: "Subject must be at least 5 characters.",
+    message: "L'objet du message doit contenir au moins 5 caractères.",
   }),
   message: z.string().min(10, {
-    message: "Message must be at least 10 characters.",
+    message: "Le message doit contenir au moins 10 caractères.",
   }),
 });
 
@@ -46,19 +47,31 @@ export default function Contact() {
     },
   });
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
+  async function onSubmit(values: z.infer<typeof formSchema>) {
     setIsSubmitting(true);
 
-    // Simulate form submission
-    setTimeout(() => {
-      console.log(values);
-      setIsSubmitting(false);
-      form.reset();
+    const toastId = toast.loading("Envoi en cours...");
 
-      toast("Message sent!", {
-        description: "Thank you for your message. I'll get back to you soon.",
-      });
-    }, 1500);
+    try {
+      const res = await sendContact(
+        values.email,
+        values.name,
+        values.subject,
+        values.message
+      );
+
+      if (res) {
+        toast.dismiss(toastId);
+        toast.success("Message envoyé avec succès !", {
+          description: "Thanks mate! Je vous répondrai dès que possible.",
+        });
+      }
+    } catch (error) {
+      toast.dismiss(toastId);
+      toast.error("Une erreur est survenue lors de l'envoi du message.");
+    } finally {
+      setIsSubmitting(false);
+    }
   }
 
   return (
@@ -139,7 +152,7 @@ export default function Contact() {
                           <FormLabel>Name</FormLabel>
                           <FormControl>
                             <Input
-                              placeholder="Your name"
+                              placeholder="Votre nom"
                               {...field}
                               className="bg-transparent border-silver/20 rounded-none focus-visible:ring-silver"
                             />
@@ -156,7 +169,7 @@ export default function Contact() {
                           <FormLabel>Email</FormLabel>
                           <FormControl>
                             <Input
-                              placeholder="Your email"
+                              placeholder="Votre email"
                               {...field}
                               className="bg-transparent border-silver/20 rounded-none focus-visible:ring-silver"
                             />
@@ -175,7 +188,7 @@ export default function Contact() {
                         <FormLabel>Objet</FormLabel>
                         <FormControl>
                           <Input
-                            placeholder="Subject"
+                            placeholder="Objet du message"
                             {...field}
                             className="bg-transparent border-silver/20 rounded-none focus-visible:ring-silver"
                           />
@@ -193,7 +206,7 @@ export default function Contact() {
                         <FormLabel>Message</FormLabel>
                         <FormControl>
                           <Textarea
-                            placeholder="Your message"
+                            placeholder="Votre message"
                             {...field}
                             rows={6}
                             className="bg-transparent border-silver/20 rounded-none focus-visible:ring-silver resize-none"

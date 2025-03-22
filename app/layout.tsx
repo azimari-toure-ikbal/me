@@ -1,16 +1,53 @@
-import type React from "react";
 import "@/app/globals.css";
-import { Inter } from "next/font/google";
-import { ThemeProvider } from "@/components/theme-provider";
-import Header from "@/components/header";
 import Footer from "@/components/footer";
+import Header from "@/components/header";
+import { ThemeProvider } from "@/components/theme-provider";
+import { Metadata } from "next";
+import { Inter } from "next/font/google";
+import type React from "react";
 
 const inter = Inter({ subsets: ["latin"] });
 
-export const metadata = {
-  title: "Ikbal AZIMARI TOURE | Fullstack Web & Mobile Developer",
+export const metadata: Metadata = {
+  title: "Ikbal AZIMARI TOURE | Fullstack Developer",
   description:
     "Portfolio of Ikbal AZIMARI TOURE, a Fullstack Web & Mobile Developer specializing in modern web applications.",
+  applicationName: "Ikbal AZIMARI TOURE | Portfolio",
+  metadataBase: new URL("https://ikbal.info"),
+  openGraph: {
+    images: [],
+    type: "website",
+    url: "https://ikbal.info",
+    title: "Ikbal AZIMARI TOURE | Fullstack Developer",
+    description:
+      "Portfolio of Ikbal AZIMARI TOURE, a Fullstack Web & Mobile Developer specializing in modern web applications.",
+    siteName: "Ikbal AZIMARI TOURE | Fullstack Developer",
+  },
+  creator: "Ikbal AZIMARI TOURE",
+  category: "Fullstack Developer",
+  classification: "Portfolio",
+  keywords: [
+    "nextjs",
+    "typescript",
+    "tailwindcss",
+    "shadcnui",
+    "supabase",
+    "zod",
+    "hono",
+    "trpc",
+    "react query",
+    "drizzle",
+    "jotai",
+    "paytech",
+    "react",
+    "portfolio",
+    "portfolio website",
+    "portfolio site",
+    "portfolio page",
+    "portfolio design",
+    "portfolio template",
+    "portfolio website template",
+  ],
 };
 
 export default function RootLayout({
