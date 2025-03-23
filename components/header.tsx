@@ -59,7 +59,7 @@ export default function Header() {
           </SheetTrigger>
           <SheetContent side="right" className="bg-black border-silver/20 p-0">
             <div className="flex flex-col space-y-6 p-6 h-full justify-center">
-              {["Home", "Projects", "Contact"].map((item) => (
+              {["Home", "Réalisations", "Contact"].map((item) => (
                 <SheetTrigger key={item} asChild>
                   <button
                     onClick={() => scrollToSection(item.toLowerCase())}

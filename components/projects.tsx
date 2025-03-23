@@ -250,9 +250,10 @@ export default function Projects() {
         open={!!selectedProject}
         onOpenChange={(open) => !open && setSelectedProject(null)}
       >
-        <DialogContent className="sm:max-w-7xl sm:h-1/2 p-0 bg-black border border-silver/20 rounded-none">
+        <DialogContent className="sm:max-w-7xl max-h-[90vh] sm:max-h-full p-0 bg-black border border-silver/20 rounded-none overflow-hidden">
           {selectedProject && (
-            <div className="grid md:grid-cols-2 gap-0">
+            <div className="grid md:grid-cols-2 gap-0 h-full overflow-y-auto">
+              {/* Image Section */}
               <div className="relative h-[300px] md:h-full">
                 <Image
                   src={
@@ -291,6 +292,7 @@ export default function Projects() {
                   </>
                 )}
 
+                {/* Image Dots */}
                 <div className="absolute bottom-0 left-0 right-0 flex justify-center gap-2 p-2 bg-black/70">
                   {selectedProject.images.map((_, index) => (
                     <button
@@ -307,7 +309,8 @@ export default function Projects() {
                 </div>
               </div>
 
-              <div className="p-6 space-y-4">
+              {/* Details Section */}
+              <div className="p-6 space-y-4 overflow-y-auto max-h-[60vh] sm:max-h-full">
                 <div className="flex justify-between items-start">
                   <h3 className="text-2xl font-bold">
                     {selectedProject.title}
