@@ -50,8 +50,8 @@ export default function Hero() {
     >
       {/* Layered background elements */}
       <div className="absolute inset-0 z-0">
-        <div className="absolute top-0 left-0 w-1/3 h-screen bg-silver/5"></div>
-        <div className="absolute bottom-0 right-0 w-1/2 h-1/2 bg-silver/3"></div>
+        <div className="absolute top-0 left-0 w-1/3 h-screen bg-zinc-600/15"></div>
+        <div className="absolute bottom-0 right-0 w-1/2 h-1/2 bg-zinc-800/15"></div>
       </div>
 
       <div className="container mx-auto px-4 z-10">
@@ -59,12 +59,12 @@ export default function Hero() {
           <div ref={textRef} className="space-y-6">
             <h1 className="text-4xl md:text-6xl font-bold tracking-tight">
               Ikbal <br />
-              <span className="text-silver">AZIMARI TOURE</span>
+              <span className="text-zinc-400">AZIMARI TOURE</span>
             </h1>
-            <h2 className="text-xl md:text-2xl font-medium text-silver">
+            <h2 className="text-xl md:text-2xl font-medium text-zinc-400">
               Fullstack Web Developer
             </h2>
-            <p className="text-white/80 max-w-md">
+            <p className="text-zinc-400/80 max-w-md">
               Créer des expériences numériques élégantes avec des technologies
               de pointes et un design réfléchi.
             </p>
@@ -78,7 +78,7 @@ export default function Hero() {
 
           <div className="hidden md:block relative h-[500px] w-full">
             <div className="absolute inset-0 bg-gradient-to-tr from-black via-black/50 to-transparent z-10"></div>
-            <div className="absolute top-10 right-10 w-[300px] h-[400px] border border-silver/20 z-0"></div>
+            <div className="absolute top-10 right-10 w-[300px] h-[400px] border border-zinc-600 z-0"></div>
             <div className="absolute top-20 right-20 w-[300px] h-[400px] bg-silver/5 z-0"></div>
             <div className="absolute top-0 right-0 w-[300px] h-[400px] z-20">
               <Image

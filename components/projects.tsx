@@ -1,10 +1,10 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { Dialog, DialogContent } from "@/components/ui/dialog";
+import { Dialog, DialogClose, DialogContent } from "@/components/ui/dialog";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight, X } from "lucide-react";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 
@@ -22,7 +22,7 @@ type Project = {
   description: string;
   images: string[];
   startDate: string;
-  endDate: string | "Ongoing";
+  endDate: string;
   technologies: string[];
 };
 
@@ -131,7 +131,6 @@ const categories = [
   "Web Applications",
   // "Mobile Apps",
 ];
-
 export default function Projects() {
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
@@ -250,11 +249,10 @@ export default function Projects() {
         open={!!selectedProject}
         onOpenChange={(open) => !open && setSelectedProject(null)}
       >
-        <DialogContent className="sm:max-w-7xl max-h-[90vh] sm:max-h-full p-0 bg-black border border-silver/20 rounded-none overflow-hidden">
+        <DialogContent className="!max-w-6xl w-full p-0 bg-black border border-silver/20 rounded-none">
           {selectedProject && (
-            <div className="grid md:grid-cols-2 gap-0 h-full overflow-y-auto">
-              {/* Image Section */}
-              <div className="relative h-[300px] md:h-full">
+            <div className="grid md:grid-cols-2 gap-0">
+              <div className="relative h-[300px] md:h-[500px] lg:h-[600px]">
                 <Image
                   src={
                     selectedProject.images[currentImageIndex] ||
@@ -292,14 +290,11 @@ export default function Projects() {
                   </>
                 )}
 
-                {/* Image Dots */}
                 <div className="absolute bottom-0 left-0 right-0 flex justify-center gap-2 p-2 bg-black/70">
                   {selectedProject.images.map((_, index) => (
                     <button
                       key={index}
-                      className={`w-2 h-2 rounded-none ${
-                        currentImageIndex === index ? "bg-white" : "bg-white/30"
-                      }`}
+                      className={`w-2 h-2 rounded-none ${currentImageIndex === index ? "bg-white" : "bg-white/30"}`}
                       onClick={(e) => {
                         e.stopPropagation();
                         setCurrentImageIndex(index);
@@ -309,12 +304,16 @@ export default function Projects() {
                 </div>
               </div>
 
-              {/* Details Section */}
-              <div className="p-6 space-y-4 overflow-y-auto max-h-[60vh] sm:max-h-full">
+              <div className="p-6 md:p-8 space-y-6 flex flex-col h-full">
                 <div className="flex justify-between items-start">
-                  <h3 className="text-2xl font-bold">
+                  <h3 className="text-2xl md:text-3xl font-bold">
                     {selectedProject.title}
                   </h3>
+                  <DialogClose asChild>
+                    <Button variant="ghost" size="icon" className="text-white">
+                      <X className="h-6 w-6" />
+                    </Button>
+                  </DialogClose>
                 </div>
 
                 <div className="flex items-center text-sm text-silver">
@@ -323,17 +322,19 @@ export default function Projects() {
                   </span>
                 </div>
 
-                <p className="text-white/80">{selectedProject.description}</p>
+                <p className="text-white/80 md:text-lg">
+                  {selectedProject.description}
+                </p>
 
-                <div className="space-y-2">
-                  <h4 className="text-sm font-medium text-silver">
+                <div className="space-y-3 mt-auto">
+                  <h4 className="text-sm md:text-base font-medium text-silver">
                     Technologies
                   </h4>
                   <div className="flex flex-wrap gap-2">
                     {selectedProject.technologies.map((tech) => (
                       <span
                         key={tech}
-                        className="px-2 py-1 text-xs bg-silver/10 border border-silver/20"
+                        className="px-3 py-1.5 text-xs md:text-sm bg-silver/10 border border-silver/20"
                       >
                         {tech}
                       </span>
