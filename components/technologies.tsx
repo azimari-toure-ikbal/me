@@ -32,7 +32,8 @@ const Technologies: React.FC<TechnologiesProps> = ({}) => {
         <div className="mb-16 text-center">
           <h2 className="text-3xl md:text-5xl font-bold mb-6">Technologies</h2>
           <p className="text-silver max-w-2xl mx-auto mb-10">
-            Une sélection de mes travaux récents sur diverses technologies.
+            Je suis un passionné de développement attiré par les nouvelles
+            technologies et techniques.
           </p>
 
           <div className="space-y-2">
