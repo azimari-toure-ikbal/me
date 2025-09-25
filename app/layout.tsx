@@ -1,4 +1,3 @@
-import "@/app/globals.css";
 import Footer from "@/components/footer";
 import Header from "@/components/header";
 import { PostHogProvider } from "@/components/providers/posthog";
@@ -6,6 +5,7 @@ import { ThemeProvider } from "@/components/theme-provider";
 import { Metadata } from "next";
 import { Inter } from "next/font/google";
 import type React from "react";
+import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
