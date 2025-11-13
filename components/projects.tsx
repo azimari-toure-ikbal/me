@@ -14,7 +14,6 @@ if (typeof window !== "undefined") {
 }
 
 type Project = {
-  id: number;
   title: string;
   thumbnail: string;
   category: string;
@@ -28,10 +27,9 @@ type Project = {
 
 const projects: Project[] = [
   {
-    id: 1,
     title: "Samaweekend",
     thumbnail: "/samaweekend/pic1.jpeg",
-    category: "Web Applications",
+    category: "Applications Web",
     primaryTech: "Next.js v15",
     description:
       "Une plateforme de réservation d'activités et de logement au Sénégal à l'instar de Airbnb. Des fonctionnalités avancées telles qu'un système de parainage, des points de fidélité ou encore un module de réservation complet avec blocage de dates et synchronisation des calendriers Booking et Airbnb.",
@@ -57,10 +55,9 @@ const projects: Project[] = [
     ],
   },
   {
-    id: 2,
     title: "Samaxew",
     thumbnail: "/samaxew/smx1.png",
-    category: "Web Applications",
+    category: "Applications Web",
     primaryTech: "Next.js v14",
     description:
       "Samaxew est une plateforme qui permet de mettre en relations les particuliers avec des professionnels de l'événementiel. La plateforme contient un module de réservation de place ainsi qu'un chat en ligne pour dialoguer avec les prestataires. Pour les prestataires un système d'abonnement récurrent également a été mis en place.",
@@ -81,7 +78,6 @@ const projects: Project[] = [
     ],
   },
   {
-    id: 3,
     title: "Rap's",
     thumbnail: "/raps/raps1.png",
     category: "Landing Pages",
@@ -94,7 +90,6 @@ const projects: Project[] = [
     technologies: ["Next.js v14", "TypeScript", "Tailwind CSS v3", "ShadcnUI"],
   },
   {
-    id: 4,
     title: "Danaus",
     thumbnail: "/danaus/danaus1.png",
     category: "E-commerce",
@@ -123,10 +118,39 @@ const projects: Project[] = [
     ],
   },
   {
-    id: 5,
+    title: "Store221",
+    thumbnail: "/store221/store221-1.jpeg",
+    category: "E-commerce",
+    primaryTech: "Next.js v15",
+    description:
+      "Un site de E-commerce pour la marque Kayshopping et ses produits. Choix de la devise ainsi que paiement par Paypal ont été mis en place pour offrir une expérience de paiement fluide et internationale.",
+    images: [
+      "/store221/store221-1.jpeg",
+      "/store221/store221-2.jpeg",
+      "/store221/store221-3.jpeg",
+    ],
+    startDate: "01/2025",
+    endDate: "04/2025",
+    technologies: [
+      "Next.js v15",
+      "TypeScript",
+      "Tailwind CSS v3",
+      "ShadcnUI",
+      "Zod",
+      "PostgreSQL",
+      "Resend",
+      "TRPC x React Query",
+      "Drizzle",
+      "Jotai",
+      "Wave",
+      "Orange Money",
+      "Paypal",
+    ],
+  },
+  {
     title: "Minebar Déco",
     thumbnail: "/deco/deco1.png",
-    category: "Web Applications",
+    category: "Applications Web",
     primaryTech: "Next.js v15 & Expo React Native",
     description:
       "Minebar Déco est une suite composée d'une application web avec tableau de bord intégré avec statistiques avancés et génération de rapports, ainsi que de deux applications mobiles (clients et livreurs).",
@@ -149,10 +173,9 @@ const projects: Project[] = [
     ],
   },
   {
-    id: 6,
     title: "Minebar Probat",
     thumbnail: "/probat/probat1.png",
-    category: "Web Applications",
+    category: "Applications Web",
     primaryTech: "Next.js v15",
     description:
       "Plateforme commerciale de Minebar Probat. Elle met en avant les produits de la marque et une suite avec création d'un CRM est prévue.",
@@ -172,16 +195,15 @@ const projects: Project[] = [
     ],
   },
   {
-    id: 7,
     title: "AfterPro",
     thumbnail: "/afterpro/afterpro.png",
-    category: "Web Applications",
+    category: "Applications Web",
     primaryTech: "Next.js v15",
     description:
       "AfterPro est un portail vers la société After'Pro qui présente leurs services, partenaires et filliales.",
     images: ["/afterpro/afterpro.png"],
     startDate: "07/2024",
-    endDate: "En développement",
+    endDate: "08/2024",
     technologies: [
       "Next.js v15",
       "TypeScript",
@@ -190,20 +212,76 @@ const projects: Project[] = [
       "Resend",
     ],
   },
+  {
+    title: "Oryon",
+    thumbnail: "/oryon/oryon-1.png",
+    category: "Applications Web",
+    primaryTech: "Next.js v15",
+    description:
+      "Oryon est une application basée sur l'IA pour offrir aux chercheurs d'emplois des outils pour se préparer aux entretiens avec comme fonctionnalité : l'entretien en ligne avec une IA et un rapport d'entretien personnalisé, entre autres.",
+    images: [
+      "/oryon/oryon-1.png",
+      "/oryon/oryon-2.png",
+      "/oryon/oryon-3.png",
+      "/oryon/oryon-4.png",
+    ],
+    startDate: "09/2025",
+    endDate: "11/2025",
+    technologies: [
+      "Next.js v15",
+      "TypeScript",
+      "Tailwind CSS v4",
+      "ShadcnUI",
+      "AI SDK",
+      "Gemini 2.5 flash",
+      "PostgreSQL",
+      "Zod",
+      "TRPC x React Query",
+      "Posthog",
+    ],
+  },
+  {
+    title: "Minebar Déco Mobile",
+    thumbnail: "/deco/mobile/md-mobile-1.png",
+    category: "Applications Mobiles",
+    primaryTech: "Expo React Native",
+    description: "Application cliente de la suite Minebar Déco.",
+    images: [
+      "/deco/mobile/md-mobile-1.png",
+      "/deco/mobile/md-mobile-2.png",
+      "/deco/mobile/md-mobile-3.png",
+      "/deco/mobile/md-mobile-4.png",
+    ],
+    startDate: "05/2025",
+    endDate: "12/2025",
+    technologies: [
+      "Expo",
+      "React Native",
+      "TypeScript",
+      "Nativewind",
+      "PostgreSQL",
+      "React Query",
+      "Jotai",
+      "Wave",
+      "Orange Money",
+    ],
+  },
 ];
 
 const categories = [
   "All",
   "Landing Pages",
   "E-commerce",
-  "Web Applications",
-  // "Mobile Apps",
+  "Applications Web",
+  "Applications Mobiles",
 ];
 export default function Projects() {
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const projectsRef = useRef<HTMLDivElement>(null);
+  const isSelectedMobileCategory =
+    selectedProject?.category === "Applications Mobiles";
 
   useEffect(() => {
     if (!projectsRef.current) return;
@@ -273,42 +351,64 @@ export default function Projects() {
           ref={projectsRef}
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
         >
-          {filteredProjects.map((project) => (
-            <div
-              key={project.id}
-              className="project-item group cursor-pointer"
-              onClick={() => {
-                setSelectedProject(project);
-                setCurrentImageIndex(0);
-              }}
-            >
-              <div className="relative overflow-hidden">
-                <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10 flex items-center justify-center">
-                  <Button className="bg-white text-black hover:bg-silver rounded-none">
-                    View Project
-                  </Button>
+          {filteredProjects.map((project) => {
+            const isMobileCategory =
+              project.category === "Applications Mobiles";
+            return (
+              <div
+                key={project.title}
+                className="project-item group cursor-pointer"
+                onClick={() => {
+                  setSelectedProject(project);
+                  setCurrentImageIndex(0);
+                }}
+              >
+                <div
+                  className={`relative ${
+                    isMobileCategory
+                      ? "overflow-visible flex items-center justify-center bg-white/5 py-6"
+                      : "overflow-hidden"
+                  }`}
+                >
+                  <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10 flex items-center justify-center">
+                    <Button className="bg-white text-black hover:bg-silver rounded-none">
+                      Détails
+                    </Button>
+                  </div>
+                  <div
+                    className={
+                      isMobileCategory
+                        ? "relative aspect-[9/20] w-[220px] sm:w-[240px] border border-white/15 rounded-[32px] bg-black shadow-[0_0_40px_rgba(0,0,0,0.35)]"
+                        : "relative w-full h-[300px]"
+                    }
+                  >
+                    <Image
+                      src={project.thumbnail || "/placeholder.svg"}
+                      alt={project.title}
+                      width={600}
+                      height={400}
+                      className={`w-full h-full object-cover transition-transform duration-500 ${
+                        isMobileCategory
+                          ? "rounded-[28px]"
+                          : "group-hover:scale-105"
+                      }`}
+                    />
+                  </div>
                 </div>
-                <Image
-                  src={project.thumbnail || "/placeholder.svg"}
-                  alt={project.title}
-                  width={600}
-                  height={400}
-                  className="w-full h-[300px] object-cover transition-transform duration-500 group-hover:scale-105"
-                />
-              </div>
-              <div className="p-4 border border-t-0 border-silver/20">
-                <h3 className="text-xl font-bold mb-2">{project.title}</h3>
-                <div className="flex justify-between items-center">
-                  <span className="text-sm text-silver">
-                    {project.category}
-                  </span>
-                  <span className="text-sm px-2 py-1 bg-silver/10">
-                    {project.primaryTech}
-                  </span>
+                <div className="p-4 border border-t-0 border-silver/20">
+                  <h3 className="text-xl font-bold mb-2">{project.title}</h3>
+                  <div className="flex justify-between items-center">
+                    <span className="text-sm text-silver">
+                      {project.category}
+                    </span>
+                    <span className="text-sm px-2 py-1 bg-silver/10">
+                      {project.primaryTech}
+                    </span>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
 
@@ -320,16 +420,38 @@ export default function Projects() {
         <DialogContent className="!max-w-6xl w-full p-0 bg-black border border-silver/20 rounded-none">
           {selectedProject && (
             <div className="grid md:grid-cols-2 gap-0">
-              <div className="relative h-[300px] md:h-[500px] lg:h-[600px]">
-                <Image
-                  src={
-                    selectedProject.images[currentImageIndex] ||
-                    "/placeholder.svg"
-                  }
-                  alt={selectedProject.title}
-                  fill
-                  className="object-cover"
-                />
+              <div
+                className={`relative h-[300px] md:h-[700px] lg:h-[800px] ${
+                  isSelectedMobileCategory
+                    ? "flex items-center justify-center bg-white/5"
+                    : ""
+                }`}
+              >
+                {isSelectedMobileCategory ? (
+                  <div className="relative h-full md:aspect-[9/20] w-[220px] sm:w-[260px] md:w-[320px] border border-white/20 rounded-[36px] bg-black shadow-[0_0_45px_rgba(0,0,0,0.45)]">
+                    <Image
+                      src={
+                        selectedProject.images[currentImageIndex] ||
+                        "/placeholder.svg"
+                      }
+                      alt={selectedProject.title}
+                      fill
+                      sizes="(min-width: 1024px) 320px, 60vw"
+                      className="object-cover rounded-[30px]"
+                    />
+                  </div>
+                ) : (
+                  <Image
+                    src={
+                      selectedProject.images[currentImageIndex] ||
+                      "/placeholder.svg"
+                    }
+                    alt={selectedProject.title}
+                    fill
+                    sizes="(min-width: 1024px) 50vw, 100vw"
+                    className="object-cover"
+                  />
+                )}
 
                 {selectedProject.images.length > 1 && (
                   <>
