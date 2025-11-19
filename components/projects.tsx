@@ -14,6 +14,7 @@ if (typeof window !== "undefined") {
 }
 
 type Project = {
+  href?: string;
   title: string;
   thumbnail: string;
   category: string;
@@ -27,9 +28,10 @@ type Project = {
 
 const projects: Project[] = [
   {
+    href: "https://samaweekend.com/",
     title: "Samaweekend",
     thumbnail: "/samaweekend/pic1.jpeg",
-    category: "Applications Web",
+    category: "SaaS",
     primaryTech: "Next.js v15",
     description:
       "Une plateforme de réservation d'activités et de logement au Sénégal à l'instar de Airbnb. Des fonctionnalités avancées telles qu'un système de parainage, des points de fidélité ou encore un module de réservation complet avec blocage de dates et synchronisation des calendriers Booking et Airbnb.",
@@ -55,9 +57,10 @@ const projects: Project[] = [
     ],
   },
   {
+    href: "https://samaxew.com/",
     title: "Samaxew",
     thumbnail: "/samaxew/smx1.png",
-    category: "Applications Web",
+    category: "SaaS",
     primaryTech: "Next.js v14",
     description:
       "Samaxew est une plateforme qui permet de mettre en relations les particuliers avec des professionnels de l'événementiel. La plateforme contient un module de réservation de place ainsi qu'un chat en ligne pour dialoguer avec les prestataires. Pour les prestataires un système d'abonnement récurrent également a été mis en place.",
@@ -118,6 +121,37 @@ const projects: Project[] = [
     ],
   },
   {
+    title: "Cota",
+    thumbnail: "/cota/cota-1.png",
+    category: "SaaS",
+    primaryTech: "Next.js v15",
+    description:
+      "Une plateforme d'apprentissage en ligne pour éduquer sur les domaines de la sécurité, finance, comptabilité, etc.",
+    images: [
+      "/cota/cota-1.png",
+      "/cota/cota-2.png",
+      "/cota/cota-3.png",
+      "/cota/cota-4.png",
+    ],
+    startDate: "01/2025",
+    endDate: "03/2025",
+    technologies: [
+      "Next.js v15",
+      "TypeScript",
+      "Tailwind CSS v3",
+      "ShadcnUI",
+      "Zod",
+      "PostgreSQL",
+      "Resend",
+      "TRPC x React Query",
+      "Drizzle",
+      "Jotai",
+      "Wave",
+      "Orange Money",
+    ],
+  },
+  {
+    href: "https://store221.com/",
     title: "Store221",
     thumbnail: "/store221/store221-1.jpeg",
     category: "E-commerce",
@@ -148,9 +182,10 @@ const projects: Project[] = [
     ],
   },
   {
+    href: "https://deco.minebar-sn.com/",
     title: "Minebar Déco",
     thumbnail: "/deco/deco1.png",
-    category: "Applications Web",
+    category: "E-commerce",
     primaryTech: "Next.js v15 & Expo React Native",
     description:
       "Minebar Déco est une suite composée d'une application web avec tableau de bord intégré avec statistiques avancés et génération de rapports, ainsi que de deux applications mobiles (clients et livreurs).",
@@ -173,9 +208,10 @@ const projects: Project[] = [
     ],
   },
   {
+    href: "https://probat.minebar-sn.com/",
     title: "Minebar Probat",
     thumbnail: "/probat/probat1.png",
-    category: "Applications Web",
+    category: "Landing Pages",
     primaryTech: "Next.js v15",
     description:
       "Plateforme commerciale de Minebar Probat. Elle met en avant les produits de la marque et une suite avec création d'un CRM est prévue.",
@@ -195,9 +231,22 @@ const projects: Project[] = [
     ],
   },
   {
+    href: "https://tikevoo.com/",
+    title: "Tikevoo",
+    thumbnail: "/tikevoo/tikevoo-1.png",
+    category: "SaaS",
+    primaryTech: "Next.js v15",
+    description:
+      "Tikevoo est une plateforme de gestion d'événements et de ticketing en ligne. Je suis en charge de la maintenance et de l'ajout de fonctionnalités.",
+    images: ["/tikevoo/tikevoo-1.png", "/tikevoo/tikevoo-2.png"],
+    startDate: "10/2024",
+    endDate: "Aujourd'hui",
+    technologies: ["Next.js v14", "TypeScript", "Tailwind CSS v3"],
+  },
+  {
     title: "AfterPro",
     thumbnail: "/afterpro/afterpro.png",
-    category: "Applications Web",
+    category: "Landing Pages",
     primaryTech: "Next.js v15",
     description:
       "AfterPro est un portail vers la société After'Pro qui présente leurs services, partenaires et filliales.",
@@ -213,9 +262,10 @@ const projects: Project[] = [
     ],
   },
   {
+    href: "https://www.oryon-ai.com/",
     title: "Oryon",
     thumbnail: "/oryon/oryon-1.png",
-    category: "Applications Web",
+    category: "SaaS",
     primaryTech: "Next.js v15",
     description:
       "Oryon est une application basée sur l'IA pour offrir aux chercheurs d'emplois des outils pour se préparer aux entretiens avec comme fonctionnalité : l'entretien en ligne avec une IA et un rapport d'entretien personnalisé, entre autres.",
@@ -272,7 +322,7 @@ const categories = [
   "All",
   "Landing Pages",
   "E-commerce",
-  "Applications Web",
+  "SaaS",
   "Applications Mobiles",
 ];
 export default function Projects() {
@@ -396,7 +446,21 @@ export default function Projects() {
                   </div>
                 </div>
                 <div className="p-4 border border-t-0 border-silver/20">
-                  <h3 className="text-xl font-bold mb-2">{project.title}</h3>
+                  <h3 className="text-xl font-bold mb-2">
+                    {project.href ? (
+                      <a
+                        href={project.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="hover:underline"
+                        onClick={(event) => event.stopPropagation()}
+                      >
+                        {project.title}
+                      </a>
+                    ) : (
+                      project.title
+                    )}
+                  </h3>
                   <div className="flex justify-between items-center">
                     <span className="text-sm text-silver">
                       {project.category}
@@ -497,7 +561,18 @@ export default function Projects() {
               <div className="p-6 md:p-8 space-y-6 flex flex-col h-full">
                 <div className="flex justify-between items-start">
                   <h3 className="text-2xl md:text-3xl font-bold">
-                    {selectedProject.title}
+                    {selectedProject.href ? (
+                      <a
+                        href={selectedProject.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="hover:underline"
+                      >
+                        {selectedProject.title}
+                      </a>
+                    ) : (
+                      selectedProject.title
+                    )}
                   </h3>
                   <DialogClose asChild>
                     <Button variant="ghost" size="icon" className="text-white">
