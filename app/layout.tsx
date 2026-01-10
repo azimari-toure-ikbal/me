@@ -1,3 +1,4 @@
+import Chatwoot from "@/components/chatwoot";
 import Footer from "@/components/footer";
 import Header from "@/components/header";
 import { PostHogProvider } from "@/components/providers/posthog";
@@ -71,6 +72,7 @@ export default function RootLayout({
               <div className="flex-1">{children}</div>
               <Footer />
             </div>
+            <Chatwoot />
           </ThemeProvider>
         </PostHogProvider>
       </body>
