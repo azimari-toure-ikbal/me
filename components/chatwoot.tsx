@@ -4,7 +4,7 @@ import { useEffect } from "react";
 
 export default function Chatwoot() {
   useEffect(() => {
-    const BASE_URL = "http://utils-chatwoot-359e62-89-116-38-84.traefik.me";
+    const BASE_URL = "https://chatwoot-production-de78.up.railway.app";
 
     // Avoid loading the script multiple times
     if ((window as any).chatwootSDK) return;
@@ -16,7 +16,7 @@ export default function Chatwoot() {
 
     script.onload = () => {
       (window as any).chatwootSDK.run({
-        websiteToken: "rY6s6JyCXThSbB54hHbPhHDG",
+        websiteToken: "dxpu5avxhtsU2dctg9Dj9QVg",
         baseUrl: BASE_URL,
       });
     };
