@@ -21,6 +21,15 @@ export default function Chatwoot() {
       });
     };
 
+    window.addEventListener("chatwoot:ready", () => {
+      // 1. Get the website token you already have in the component
+      const websiteToken = "NHonoRUgX7JxrJmRiXdTmq6T";
+
+      // 2. Save it to a cookie that your proxy can read
+      // Use a domain-level cookie if your proxy is a subdomain
+      document.cookie = `last_chatwoot_inbox=${websiteToken}; path=/; domain=.yourdomain.com; max-age=3600`;
+    });
+
     document.body.appendChild(script);
   }, []);
 
