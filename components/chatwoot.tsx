@@ -16,7 +16,7 @@ export default function Chatwoot() {
 
     script.onload = () => {
       (window as any).chatwootSDK.run({
-        websiteToken: "dxpu5avxhtsU2dctg9Dj9QVg",
+        websiteToken: "NHonoRUgX7JxrJmRiXdTmq6T",
         baseUrl: BASE_URL,
       });
     };
